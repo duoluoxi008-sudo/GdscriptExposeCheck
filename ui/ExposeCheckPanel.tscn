@@ -1,0 +1,222 @@
+[gd_scene format=3 uid="uid://bv8namb011rmg"]
+
+[ext_resource type="Script" uid="uid://k14dlmi4gcdd" path="res://addons/expose_check/ui/expose_check_area.gd" id="1_3kgug"]
+[ext_resource type="Script" uid="uid://b63y10edct7fd" path="res://addons/expose_check/ui/expose_check_interface.gd" id="1_e4qpj"]
+[ext_resource type="PackedScene" uid="uid://dc1x3urm57l5a" path="res://addons/expose_check/ui/InputLine.tscn" id="2_ijfrx"]
+[ext_resource type="Script" uid="uid://cxwjug3o17hqq" path="res://addons/expose_check/ui/ConfigPanel.gd" id="2_rs86w"]
+
+[node name="MainInterface" type="Control" unique_id=583697022]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_e4qpj")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1608096457]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Top&BottomSplit" type="VSplitContainer" parent="HBoxContainer" unique_id=1829032082]
+layout_mode = 2
+size_flags_horizontal = 3
+split_offsets = PackedInt32Array(4)
+touch_dragger_enabled = true
+split_offset = 4
+
+[node name="Norm" type="HBoxContainer" parent="HBoxContainer/Top&BottomSplit" unique_id=1967208558]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="config" type="Button" parent="HBoxContainer/Top&BottomSplit/Norm" unique_id=1193060515]
+layout_mode = 2
+text = "设置"
+metadata/i18n_src = "设置"
+
+[node name="import" type="Button" parent="HBoxContainer/Top&BottomSplit/Norm" unique_id=311693777]
+layout_mode = 2
+text = "导入"
+metadata/i18n_src = "导入"
+
+[node name="export" type="Button" parent="HBoxContainer/Top&BottomSplit/Norm" unique_id=1564380113]
+layout_mode = 2
+text = "导出"
+metadata/i18n_src = "导出"
+
+[node name="save_selected" type="Button" parent="HBoxContainer/Top&BottomSplit/Norm" unique_id=683599097]
+layout_mode = 2
+text = " 保存选中节点"
+metadata/i18n_src = " 保存选中节点"
+
+[node name="refres" type="Button" parent="HBoxContainer/Top&BottomSplit/Norm" unique_id=1163594352]
+layout_mode = 2
+text = "刷新所有节点"
+metadata/i18n_src = "刷新所有节点"
+
+[node name="delete_selected_node" type="Button" parent="HBoxContainer/Top&BottomSplit/Norm" unique_id=459073150]
+layout_mode = 2
+text = "删除选中节点"
+metadata/i18n_src = "删除选中节点"
+
+[node name="delete_all_node" type="Button" parent="HBoxContainer/Top&BottomSplit/Norm" unique_id=1509726757]
+layout_mode = 2
+text = "删除所有节点"
+metadata/i18n_src = "删除所有节点"
+
+[node name="Graph&ConfigSplit" type="HSplitContainer" parent="HBoxContainer/Top&BottomSplit" unique_id=1633880337]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 16.0
+split_offsets = PackedInt32Array(300)
+touch_dragger_enabled = true
+split_offset = 300
+
+[node name="ConfigPanel" type="PanelContainer" parent="HBoxContainer/Top&BottomSplit/Graph&ConfigSplit" unique_id=497636784 node_paths=PackedStringArray("graph_config_split")]
+unique_name_in_owner = true
+layout_mode = 2
+script = ExtResource("2_rs86w")
+graph_config_split = NodePath("..")
+input_line_scene = ExtResource("2_ijfrx")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Top&BottomSplit/Graph&ConfigSplit/ConfigPanel" unique_id=1198109658]
+layout_mode = 2
+
+[node name="PortConfig" type="ScrollContainer" parent="HBoxContainer/Top&BottomSplit/Graph&ConfigSplit/ConfigPanel/VBoxContainer" unique_id=1280094056]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PortConfigContainer" type="VBoxContainer" parent="HBoxContainer/Top&BottomSplit/Graph&ConfigSplit/ConfigPanel/VBoxContainer/PortConfig" unique_id=105810149]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="NameLabel" type="Label" parent="HBoxContainer/Top&BottomSplit/Graph&ConfigSplit/ConfigPanel/VBoxContainer/PortConfig/PortConfigContainer" unique_id=1511334619]
+layout_mode = 2
+text = "设置Port含义"
+horizontal_alignment = 1
+metadata/i18n_src = "设置Port含义"
+
+[node name="InputLine" parent="HBoxContainer/Top&BottomSplit/Graph&ConfigSplit/ConfigPanel/VBoxContainer/PortConfig/PortConfigContainer" unique_id=970161429 instance=ExtResource("2_ijfrx")]
+layout_mode = 2
+
+[node name="index" parent="HBoxContainer/Top&BottomSplit/Graph&ConfigSplit/ConfigPanel/VBoxContainer/PortConfig/PortConfigContainer/InputLine/PanelContainer" parent_id_path=PackedInt32Array(970161429, 1732034372) index="0" unique_id=114927877]
+metadata/i18n_src = "1:"
+
+[node name="left" parent="HBoxContainer/Top&BottomSplit/Graph&ConfigSplit/ConfigPanel/VBoxContainer/PortConfig/PortConfigContainer/InputLine" index="1" unique_id=1818829115]
+text = " 输入"
+metadata/i18n_src = " 输入"
+
+[node name="right" parent="HBoxContainer/Top&BottomSplit/Graph&ConfigSplit/ConfigPanel/VBoxContainer/PortConfig/PortConfigContainer/InputLine" index="2" unique_id=1248623250]
+text = "输出"
+metadata/i18n_src = "输出"
+
+[node name="ColorPickerButton" parent="HBoxContainer/Top&BottomSplit/Graph&ConfigSplit/ConfigPanel/VBoxContainer/PortConfig/PortConfigContainer/InputLine" index="3" unique_id=673554338]
+metadata/i18n_src = ""
+
+[node name="InputLine2" parent="HBoxContainer/Top&BottomSplit/Graph&ConfigSplit/ConfigPanel/VBoxContainer/PortConfig/PortConfigContainer" unique_id=1872347384 instance=ExtResource("2_ijfrx")]
+layout_mode = 2
+
+[node name="index" parent="HBoxContainer/Top&BottomSplit/Graph&ConfigSplit/ConfigPanel/VBoxContainer/PortConfig/PortConfigContainer/InputLine2/PanelContainer" parent_id_path=PackedInt32Array(1872347384, 1732034372) index="0" unique_id=114927877]
+text = "2:"
+metadata/i18n_src = "2:"
+
+[node name="left" parent="HBoxContainer/Top&BottomSplit/Graph&ConfigSplit/ConfigPanel/VBoxContainer/PortConfig/PortConfigContainer/InputLine2" index="1" unique_id=1818829115]
+metadata/i18n_src = ""
+
+[node name="right" parent="HBoxContainer/Top&BottomSplit/Graph&ConfigSplit/ConfigPanel/VBoxContainer/PortConfig/PortConfigContainer/InputLine2" index="2" unique_id=1248623250]
+metadata/i18n_src = ""
+
+[node name="ColorPickerButton" parent="HBoxContainer/Top&BottomSplit/Graph&ConfigSplit/ConfigPanel/VBoxContainer/PortConfig/PortConfigContainer/InputLine2" index="3" unique_id=673554338]
+metadata/i18n_src = ""
+
+[node name="AddDelButton" type="HBoxContainer" parent="HBoxContainer/Top&BottomSplit/Graph&ConfigSplit/ConfigPanel/VBoxContainer/PortConfig/PortConfigContainer" unique_id=700190013]
+layout_mode = 2
+
+[node name="AddNewItem" type="Button" parent="HBoxContainer/Top&BottomSplit/Graph&ConfigSplit/ConfigPanel/VBoxContainer/PortConfig/PortConfigContainer/AddDelButton" unique_id=383479582]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "添加最新一个"
+metadata/i18n_src = "添加最新一个"
+
+[node name="DeleteLastItem" type="Button" parent="HBoxContainer/Top&BottomSplit/Graph&ConfigSplit/ConfigPanel/VBoxContainer/PortConfig/PortConfigContainer/AddDelButton" unique_id=1596952763]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "删除最后一个"
+metadata/i18n_src = "删除最后一个"
+
+[node name="BehaviorConfig" type="ScrollContainer" parent="HBoxContainer/Top&BottomSplit/Graph&ConfigSplit/ConfigPanel/VBoxContainer" unique_id=255882782]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Top&BottomSplit/Graph&ConfigSplit/ConfigPanel/VBoxContainer/BehaviorConfig" unique_id=1418056151]
+layout_mode = 2
+
+[node name="GraphArea" type="GraphEdit" parent="HBoxContainer/Top&BottomSplit/Graph&ConfigSplit" unique_id=1240103726 node_paths=PackedStringArray("float_menu", "import_mode_menu")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+right_disconnects = true
+show_zoom_label = true
+script = ExtResource("1_3kgug")
+float_menu = NodePath("FloatMenu")
+import_mode_menu = NodePath("ImportModeMenu")
+
+[node name="FloatMenu" type="PopupMenu" parent="HBoxContainer/Top&BottomSplit/Graph&ConfigSplit/GraphArea" unique_id=1914223876]
+oversampling_override = 1.0
+position = Vector2i(0, 96)
+size = Vector2i(106, 116)
+item_count = 4
+item_0/text = "新建节点"
+item_0/id = 0
+item_1/text = "删除节点"
+item_1/id = 1
+item_2/text = "导出"
+item_2/id = 2
+item_3/text = "保存选中"
+item_3/id = 3
+metadata/i18n_items = ["新建节点", "删除节点", "导出", "保存选中"]
+
+[node name="HintPopup" type="PopupPanel" parent="HBoxContainer/Top&BottomSplit/Graph&ConfigSplit/GraphArea" unique_id=1374761278]
+unique_name_in_owner = true
+oversampling_override = 1.0
+size = Vector2i(240, 60)
+
+[node name="HintLabel" type="Label" parent="HBoxContainer/Top&BottomSplit/Graph&ConfigSplit/GraphArea/HintPopup" unique_id=201845811]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(220, 0)
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 236.0
+offset_bottom = 56.0
+text = "无注释"
+autowrap_mode = 3
+metadata/i18n_src = "无注释"
+
+[node name="PortMenu" type="PopupMenu" parent="HBoxContainer/Top&BottomSplit/Graph&ConfigSplit/GraphArea" unique_id=80100943]
+unique_name_in_owner = true
+oversampling_override = 1.0
+
+[node name="ImportModeMenu" type="PopupMenu" parent="HBoxContainer/Top&BottomSplit/Graph&ConfigSplit/GraphArea" unique_id=1712033495]
+oversampling_override = 1.0
+
+[connection signal="pressed" from="HBoxContainer/Top&BottomSplit/Norm/config" to="HBoxContainer/Top&BottomSplit/Graph&ConfigSplit/ConfigPanel" method="_on_config_pressed"]
+[connection signal="pressed" from="HBoxContainer/Top&BottomSplit/Norm/import" to="HBoxContainer/Top&BottomSplit/Graph&ConfigSplit/GraphArea" method="_on_import_pressed"]
+[connection signal="pressed" from="HBoxContainer/Top&BottomSplit/Norm/export" to="HBoxContainer/Top&BottomSplit/Graph&ConfigSplit/GraphArea" method="_on_export_pressed"]
+[connection signal="pressed" from="HBoxContainer/Top&BottomSplit/Norm/save_selected" to="HBoxContainer/Top&BottomSplit/Graph&ConfigSplit/GraphArea" method="_on_save_selected_pressed"]
+[connection signal="pressed" from="HBoxContainer/Top&BottomSplit/Norm/refres" to="." method="_on_refresh_pressed"]
+[connection signal="pressed" from="HBoxContainer/Top&BottomSplit/Norm/delete_selected_node" to="HBoxContainer/Top&BottomSplit/Graph&ConfigSplit/GraphArea" method="del_select_node"]
+[connection signal="pressed" from="HBoxContainer/Top&BottomSplit/Norm/delete_all_node" to="HBoxContainer/Top&BottomSplit/Graph&ConfigSplit/GraphArea" method="_on_clear_all_pressed"]
+[connection signal="pressed" from="HBoxContainer/Top&BottomSplit/Graph&ConfigSplit/ConfigPanel/VBoxContainer/PortConfig/PortConfigContainer/AddDelButton/AddNewItem" to="HBoxContainer/Top&BottomSplit/Graph&ConfigSplit/ConfigPanel" method="_on_add_new_item_pressed"]
+[connection signal="pressed" from="HBoxContainer/Top&BottomSplit/Graph&ConfigSplit/ConfigPanel/VBoxContainer/PortConfig/PortConfigContainer/AddDelButton/DeleteLastItem" to="HBoxContainer/Top&BottomSplit/Graph&ConfigSplit/ConfigPanel" method="_on_delete_last_item_pressed"]
+[connection signal="connection_request" from="HBoxContainer/Top&BottomSplit/Graph&ConfigSplit/GraphArea" to="HBoxContainer/Top&BottomSplit/Graph&ConfigSplit/GraphArea" method="_on_connection_request"]
+[connection signal="disconnection_request" from="HBoxContainer/Top&BottomSplit/Graph&ConfigSplit/GraphArea" to="HBoxContainer/Top&BottomSplit/Graph&ConfigSplit/GraphArea" method="_on_disconnection_request"]
+[connection signal="node_deselected" from="HBoxContainer/Top&BottomSplit/Graph&ConfigSplit/GraphArea" to="HBoxContainer/Top&BottomSplit/Graph&ConfigSplit/GraphArea" method="_on_node_deselected"]
+[connection signal="popup_request" from="HBoxContainer/Top&BottomSplit/Graph&ConfigSplit/GraphArea" to="HBoxContainer/Top&BottomSplit/Graph&ConfigSplit/GraphArea" method="_on_popup_request"]
+[connection signal="id_pressed" from="HBoxContainer/Top&BottomSplit/Graph&ConfigSplit/GraphArea/FloatMenu" to="HBoxContainer/Top&BottomSplit/Graph&ConfigSplit/GraphArea" method="_on_float_menu_id_pressed"]
+
+[editable path="HBoxContainer/Top&BottomSplit/Graph&ConfigSplit/ConfigPanel/VBoxContainer/PortConfig/PortConfigContainer/InputLine"]
+[editable path="HBoxContainer/Top&BottomSplit/Graph&ConfigSplit/ConfigPanel/VBoxContainer/PortConfig/PortConfigContainer/InputLine2"]

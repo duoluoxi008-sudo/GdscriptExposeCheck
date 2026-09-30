@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://dc1x3urm57l5a"]
+
+[ext_resource type="Script" uid="uid://bn5of67q1foji" path="res://addons/expose_check/ui/InputLine.gd" id="1_8dkha"]
+
+[node name="InputLine" type="HBoxContainer" unique_id=970161429 node_paths=PackedStringArray("l_input", "r_input", "color_picker")]
+alignment = 1
+script = ExtResource("1_8dkha")
+l_input = NodePath("left")
+r_input = NodePath("right")
+color_picker = NodePath("ColorPickerButton")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1732034372]
+layout_mode = 2
+
+[node name="index" type="Label" parent="PanelContainer" unique_id=114927877]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+text = "1:"
+horizontal_alignment = 1
+
+[node name="left" type="LineEdit" parent="." unique_id=1818829115]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "LeftPort"
+alignment = 1
+
+[node name="right" type="LineEdit" parent="." unique_id=1248623250]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "RightPort"
+alignment = 1
+
+[node name="ColorPickerButton" type="ColorPickerButton" parent="." unique_id=673554338]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+size_flags_stretch_ratio = 0.2
+color = Color(1, 1, 1, 1)

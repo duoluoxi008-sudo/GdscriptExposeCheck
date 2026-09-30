@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://byhj2qxc6ivxo"]
+
+[ext_resource type="Script" uid="uid://cfdp8up877xfw" path="res://addons/expose_check/ui/container_block.gd" id="1_jane3"]
+[ext_resource type="LabelSettings" uid="uid://dlibuapfsyxqq" path="res://addons/expose_check/ui/Port_label_settings.tres" id="2_n7fj4"]
+[ext_resource type="LabelSettings" uid="uid://csuymxjqr3ne7" path="res://addons/expose_check/ui/NameMark_label_settings.tres" id="2_x7p6g"]
+
+[node name="ContainerBlock" type="PanelContainer" unique_id=1695403783 node_paths=PackedStringArray("type_label", "name_label", "left_port_label", "right_port_label")]
+offset_right = 65.0
+offset_bottom = 23.0
+script = ExtResource("1_jane3")
+type_label = NodePath("VBoxContainer/NameMark/Type")
+name_label = NodePath("VBoxContainer/NameMark/Name")
+left_port_label = NodePath("VBoxContainer/PortMean/LeftPort")
+right_port_label = NodePath("VBoxContainer/PortMean/RightPort")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=670666125]
+layout_mode = 2
+
+[node name="NameMark" type="HBoxContainer" parent="VBoxContainer" unique_id=694324201]
+layout_mode = 2
+
+[node name="Type" type="Label" parent="VBoxContainer/NameMark" unique_id=1216788168]
+layout_mode = 2
+size_flags_stretch_ratio = 2.0
+text = "--类型--"
+label_settings = ExtResource("2_x7p6g")
+
+[node name="Name" type="Label" parent="VBoxContainer/NameMark" unique_id=1060611564]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 8.0
+text = "--Name--"
+label_settings = ExtResource("2_x7p6g")
+horizontal_alignment = 1
+
+[node name="PortMean" type="HBoxContainer" parent="VBoxContainer" unique_id=1796474592]
+layout_mode = 2
+
+[node name="LeftPort" type="Label" parent="VBoxContainer/PortMean" unique_id=190604315]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "--左输入含义"
+label_settings = ExtResource("2_n7fj4")
+
+[node name="RightPort" type="Label" parent="VBoxContainer/PortMean" unique_id=1210829553]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "右输入含义--"
+label_settings = ExtResource("2_n7fj4")
+horizontal_alignment = 2
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
